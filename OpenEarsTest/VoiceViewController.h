@@ -7,7 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <OpenEars/LanguageModelGenerator.h>
+#import <OpenEars/PocketsphinxController.h>
+#import <OpenEars/OpenEarsEventsObserver.h>
 
-@interface ViewController : UIViewController
+
+@interface VoiceViewController : UIViewController <OpenEarsEventsObserverDelegate>{
+    OpenEarsEventsObserver *openEarsEventsObserver;
+}
+- (IBAction)speak:(id)sender;
+@property (strong, nonatomic) IBOutlet UITextView *addressField;
+@property (strong, nonatomic) PocketsphinxController *pocketsphinxController;
+@property (strong, nonatomic) OpenEarsEventsObserver *openEarsEventsObserver;
+@property (strong, nonatomic) IBOutlet UIButton *speakButton;
+@property NSString *lmPath;
+@property NSString *dicPath;
+@property Boolean isOn;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *wheel;
 
 @end
